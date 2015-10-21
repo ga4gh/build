@@ -38,7 +38,7 @@ when we move this to the [GA4GH repository](https://github.com/ga4gh/).__
 $ repo init -u https://github.com/hjellinek/ga4gh-build.git
 ```
 
-Finally, synchronize your directories with the server:
+Then synchronize your directories with the server:
 
 ```bash
 $ repo sync
@@ -62,7 +62,7 @@ like so.
 $ repo forall -p -c 'git remote -v add origin https://github.com/myaccount/$REPO_PATH'
 ```
 
-Review your remotes like so:
+Review your remotes to make sure they're right:
 
 ```bash
 $ repo forall -p -c 'git remote -v'
