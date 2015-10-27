@@ -1,0 +1,4 @@
+#! /bin/sh
+
+# Show detailed diffs for each subproject
+repo forall -p -c 'git diff .'

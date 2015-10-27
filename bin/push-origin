@@ -1,0 +1,17 @@
+#! /bin/sh
+
+# Push a set of changes to your 'origin' remote repo
+#
+# Usage:
+# push-origin [branch name]
+#
+# If [branch name] isn't supplied, use the name of the current branch.
+#
+
+set -beEu -o pipefail
+
+branch_name=${1:-$(git symbolic-ref --short HEAD)}
+
+echo Pushing to origin/$branch_name
+
+repo forall -p -c "git push origin $branch_name"
