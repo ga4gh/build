@@ -1,12 +1,12 @@
 <manifest>
   <remote name="ga4gh" fetch="https://github.com"/>
   
-  <default revision="refs/heads/master" remote="ga4gh" sync-j="4"/>
+  <default revision="refs/heads/master" remote="upstream" sync-j="4"/>
 
-  <project name="ga4gh/schemas" remote="ga4gh" path="schemas"/>
+  <project name="ga4gh/schemas" remote="upstream" path="schemas"/>
 
-  <project name="ga4gh/server" remote="ga4gh" path="server" revision="refs/heads/develop"/>
+  <project name="ga4gh/server" remote="upstream" path="server" revision="refs/heads/develop"/>
 
-  <project name="ga4gh/compliance" remote="ga4gh" path="compliance"/>
+  <project name="ga4gh/compliance" remote="upstream" path="compliance"/>
 
 </manifest>
