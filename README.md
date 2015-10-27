@@ -11,12 +11,21 @@ You must first install Google's `repo` tool.  See
 [installing repo](https://source.android.com/source/downloading.html#installing-repo)
 for the simple details of how to do this.
 
+### Getting help
 See
 [Repo command reference](https://source.android.com/source/using-repo.html)
 for more information on `repo`'s subcommands.  (Note that we are not
 using the [Gerrit](https://android-review.googlesource.com/)
 code-review tool, so please ignore the `repo` subcommands  `download` and
 `upload`).
+
+You can also get help from `repo` itself.  Typing `repo help'
+_(command)_ will display information on the `repo` _command_
+subcommand.  For example:
+
+```bash
+$ repo help init
+```
 
 Create a new directory to server as the parent directory for the three
 projects above.
