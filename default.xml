@@ -1,5 +1,5 @@
 <manifest>
-  <remote name="ga4gh" fetch="https://github.com"/>
+  <remote name="upstream" fetch="https://github.com"/>
   
   <default revision="refs/heads/master" remote="upstream" sync-j="4"/>
 
