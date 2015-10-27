@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # Push a set of changes to your 'origin' remote repo
 #

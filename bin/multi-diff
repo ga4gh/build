@@ -1,4 +1,6 @@
-#! /bin/sh
+#!/bin/sh
+
+set -beEu -o pipefail
 
 # Show detailed diffs for each subproject
 repo forall -p -c 'git diff .'

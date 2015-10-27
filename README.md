@@ -62,15 +62,12 @@ $ repo sync -b some_remote_branch
 ```
 
 If you're using the normal GA4GH git flow, you'll want to set up an
-`origin` git remote to which you will push your changes.  (`repo` will
-have set up an upstream called `ga4gh` from which you can pull.)
+`origin` git remote to which you will normally push your changes.
 
-Assuming
-your GitHub user name is `myaccount`, do that
-like so.
+Assuming your GitHub user name is `myaccount`, do that like this:
 
 ```bash
-$ repo forall -p -c 'git remote -v add origin https://github.com/myaccount/$REPO_PATH'
+$ add-origin myaccount
 ```
 
 Review your remotes to make sure they're right:
@@ -78,27 +75,27 @@ Review your remotes to make sure they're right:
 ```bash
 $ repo forall -p -c 'git remote -v'
 project compliance/
-ga4gh   https://github.com/ga4gh/compliance (fetch)
-ga4gh   https://github.com/ga4gh/compliance (push)
+upstream   https://github.com/ga4gh/compliance (fetch)
+upstream   https://github.com/ga4gh/compliance (push)
 origin  https://github.com/myaccount/compliance (fetch)
 origin  https://github.com/myaccount/compliance (push)
 
 project schemas/
-ga4gh   https://github.com/ga4gh/schemas (fetch)
-ga4gh   https://github.com/ga4gh/schemas (push)
+upstream   https://github.com/ga4gh/schemas (fetch)
+upstream   https://github.com/ga4gh/schemas (push)
 origin  https://github.com/myaccount/schemas (fetch)
 origin  https://github.com/myaccount/schemas (push)
 
 project server/
-ga4gh   https://github.com/ga4gh/server (fetch)
-ga4gh   https://github.com/ga4gh/server (push)
+upstream   https://github.com/ga4gh/server (fetch)
+upstream   https://github.com/ga4gh/server (push)
 origin  https://github.com/myaccount/server (fetch)
 origin  https://github.com/myaccount/server (push)
 ```
 
 ## Using it
 
-### To start working on a new task (branch)
+### To start working on a new task (topic branch)
 
 ```bash
 $ repo start fix_bug_112 compliance server schemas

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -beEu -o pipefail
+
+if [ $# -eq 0 ]; then
+    echo
+    echo "Usage: $0 <github user name>"
+    echo
+    echo "For example:"
+    echo "$0 my_github_name"
+    echo
+    exit -1
+fi
+
+account_name=$1
+
+repo forall -p -c "git remote -v add origin https://github.com/${account_name}/\$REPO_PATH"
