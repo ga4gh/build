@@ -27,6 +27,8 @@ subcommand.  For example:
 $ repo help init
 ```
 
+### Get started
+
 Create a new directory to server as the parent directory for the three
 projects above.
 
