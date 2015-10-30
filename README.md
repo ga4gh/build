@@ -6,6 +6,10 @@ This repo is a hub for those working on the GA4GH
 [Schemas](https://github.com/ga4gh/schemas), and
 [Compliance](https://github.com/ga4gh/compliance) projects.
 
+Using the instructions below and, optionally, the scripts in the
+[bin](bin) directory, you can make synchronized changes across GA4GH
+repos.
+
 ## Setting it up
 You must first install Google's `repo` tool.  See
 [installing repo](https://source.android.com/source/downloading.html#installing-repo)
@@ -19,24 +23,52 @@ using the [Gerrit](https://android-review.googlesource.com/)
 code-review tool, so please ignore the `repo` subcommands  `download` and
 `upload`).
 
-You can also get help from `repo` itself.  Typing `repo help'
-_(command)_ will display information on the `repo` _command_
+You can also get help from `repo` itself.  Typing `repo help`
+_(subcommand)_ will display information on the given `repo` 
 subcommand.  For example:
 
 ```bash
 $ repo help init
+Summary
+-------
+Initialize repo in the current directory
+
+Usage: repo init [options]
+...
 ```
 
 ### Get started
 
-Create a new directory to server as the parent directory for the three
+Clone this repo.  By default it will be called `build`:
+
+```bash
+$ git clone https://github.com/ga4gh/build.git
+```
+
+If that's too generic, you can give it a different name, like `ga4gh-build`:
+
+```bash
+$ git clone https://github.com/ga4gh/build.git ga4gh-build
+```
+
+Add the included scripts to your path (the exact syntax will depend on the
+shell you use and the location of your local copy of this repo):
+
+```bash
+$ export PATH=$PATH:~/ga4gh-build/bin
+```
+
+*That takes care of the build tool itself.  Now that it's set up, we
+can use it to work on the GA4GH projects themselves.*
+
+Create a new directory to serve as the parent directory for the three GA4GH
 projects above.
 
 ```bash
 $ mkdir MyBigBuild
 ```
 
-Set your current directory:
+Set your current directory to the one you just created:
 
 ```bash
 $ cd MyBigBuild
@@ -48,31 +80,33 @@ Then set things up with `repo`.
 $ repo init -u https://github.com/ga4gh/build.git
 ```
 
-Then synchronize your directories with the server:
+Synchronize your directories with the server:
 
 ```bash
 $ repo sync
 ```
 
-or
+or, to use a specific branch,
 
 ```bash
 $ repo sync -b some_remote_branch
 ```
 
-If you're using the normal GA4GH git flow, you'll want to set up an
-`origin` git remote to which you will normally push your changes.
+If you're using the normal GA4GH Git flow, you'll want to set up an
+`origin` Git remote to which you will normally push your changes.
 
-Assuming your GitHub user name is `myaccount`, do that like this:
+Assuming your GitHub user name is `myaccount`, do that like this using
+the `add-origin` script:
 
 ```bash
 $ add-origin myaccount
 ```
 
-Review your remotes to make sure they're right:
+Use `show-remotes` to review your remotes to make sure they're
+correct.  They should look something like this:
 
 ```bash
-$ repo forall -p -c 'git remote -v'
+$ show-remotes
 project compliance/
 upstream   https://github.com/ga4gh/compliance (fetch)
 upstream   https://github.com/ga4gh/compliance (push)
@@ -123,7 +157,7 @@ The status codes (`-m` in the example above) are explained
 You can get a more detailed view of things with a command like this:
 
 ```bash
-$ repo forall -p -c 'git diff .'
+$ multi-diff
 project compliance/
 diff --git a/cts-java/src/test/java/org/ga4gh/cts/api/TestData.java b/cts-java/s
 (details omitted)

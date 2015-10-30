@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Display all git remotes for our projects
+
+set -beEu -o pipefail
+
+repo forall -p -c 'git remote -v'
