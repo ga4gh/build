@@ -1,4 +1,4 @@
-# One Repo to Build them All #
+# One Repo to Build Them All
 
 ## Introduction
 This repo is a hub for those working on the GA4GH
@@ -42,11 +42,10 @@ Set your current directory:
 $ cd MyBigBuild
 ```
 
-Then set things up with `repo`. __The URL below will need to change
-when we move this to the [GA4GH repository](https://github.com/ga4gh/).__
+Then set things up with `repo`.
 
 ```bash
-$ repo init -u https://github.com/hjellinek/ga4gh-build.git
+$ repo init -u https://github.com/ga4gh/build.git
 ```
 
 Then synchronize your directories with the server:
