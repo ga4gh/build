@@ -16,6 +16,7 @@ Repos
 Git Model - Branches
 ====================
 Three types of branches:
+
 * master: 
 * release
 * topic
